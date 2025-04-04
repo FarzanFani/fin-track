@@ -25,12 +25,8 @@ export default function CustomButton({
   return (
     <Pressable
       onPress={onPress}
-      style={({ pressed }) => [
-        styles.button,
-        buttonStyle, // Custom styles passed as props
-        pressed && styles.pressed, // Add pressed style for feedback
-      ]}
-      android_ripple={{ color: "#D3D3D3" }} // Ripple effect for Android
+      style={({ pressed }) => [styles.button, buttonStyle, pressed && styles.pressed]}
+      android_ripple={{ color: "#D3D3D3" }}
     >
       <Text style={[styles.text, textStyle]}>{title}</Text>
     </Pressable>

@@ -7,12 +7,12 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import CustomButton from "../common/Button/Button";
-import { LOGIN_FORM_BG_BORDER, PRIMARY_DARK_BLUE } from "../../constants/color";
-import CustomInput from "../common/Input/Input";
+import CustomButton from "../../common/Button/Button";
+import { LOGIN_FORM_BG_BORDER, PRIMARY_DARK_BLUE } from "../../../constants/color";
+import CustomInput from "../../common/Input/Input";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { RootStackParamList } from "../../types/navigation";
+import { RootStackParamList } from "../../../types/navigation";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 export default function LoginForm() {
@@ -43,25 +43,28 @@ export default function LoginForm() {
           <View
             style={{
               marginTop: -40,
-              width: "80%",
+              width: "85%",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <Image source={require("../../../assets/icon.png")} style={style.logoIcon} />
+            <Image
+              source={require("../../../../assets/icon.png")}
+              style={style.logoIcon}
+            />
             <View style={style.formContainer}>
               <CustomInput
                 title="Email"
                 placeholder="example@mail.com"
                 keyboardType="email-address"
                 value={email}
-                onChangeText={onChangeEmail}
+                setValue={setEmail}
               />
               <CustomInput
                 title="Password"
                 placeholder="Password"
                 value={password}
-                onChangeText={onChangePassword}
+                setValue={setPassword}
                 secureTextEntry
               />
               <CustomButton
@@ -121,5 +124,6 @@ const style = StyleSheet.create({
     backgroundColor: LOGIN_FORM_BG_BORDER,
     width: "auto",
     marginTop: 8,
+    elevation: 0,
   },
 });
